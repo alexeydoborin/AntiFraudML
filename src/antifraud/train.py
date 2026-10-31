@@ -11,9 +11,9 @@ import joblib
 ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT / "data"
 MODEL_DIR = ROOT / "models"
-MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
 def main():
+    MODEL_DIR.mkdir(parents=True, exist_ok=True)
     df = load_data(DATA_DIR / "elliptic_txs_features.csv", DATA_DIR / "elliptic_txs_classes.csv")
     X_train, y_train, X_val, y_val, X_test, y_test = split_data(df)
 

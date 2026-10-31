@@ -19,10 +19,10 @@ def split_data(df):
     train = df[df["time_step"] <= 24]
     val = df[(df["time_step"] > 24) & (df["time_step"] <=34)]
     test = df[df["time_step"] > 34]
-    execute_columns = ["txId", "time_step", "class", "target"]
+    execlude_columns = ["txId", "time_step", "class", "target"]
 
-    X_train, y_train = train.drop(columns=execute_columns), train["target"]
-    X_val, y_val = val.drop(columns=execute_columns), val["target"]
-    X_test, y_test = test.drop(columns=execute_columns), test["target"]
+    X_train, y_train = train.drop(columns=execlude_columns), train["target"]
+    X_val, y_val = val.drop(columns=execlude_columns), val["target"]
+    X_test, y_test = test.drop(columns=execlude_columns), test["target"]
 
     return X_train, y_train, X_val, y_val, X_test, y_test
